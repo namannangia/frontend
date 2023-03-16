@@ -1,17 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import ZoneButton from "./ZoneButton";
 import RegionButton from "./RegionButton";
 import ChildOnev2 from "./ChildOnev2";
 import WhiteLoad from "./WhiteLoad";
 import "./test.css";
+import SearchBar from "./SearchBar";
 
-function UpperDiv() {
-	const [zone, setZone] = useState("");
-	const [region, setRegion] = useState("");
+function UpperDiv(props) {
 	function removeDuplicate() {
 		var result = [];
 		for (
-			var it = new Set(region.split("")).values(), val = null;
+			var it = new Set(props.regionData.split("")).values(), val = null;
 			(val = it.next().value);
 
 		) {
@@ -21,7 +20,7 @@ function UpperDiv() {
 	}
 	function reRender() {
 		for (let index = 1; index <= 8; index++) {
-			if (region.includes("" + index + "")) {
+			if (props.regionData.includes("" + index + "")) {
 				var e = document.getElementById("region").children[Number(index) - 1];
 				e.style.backgroundColor = "#D7F3ED";
 				e.style.outline = "none";
@@ -49,63 +48,7 @@ function UpperDiv() {
 					boxShadow: "0px 0px 5px rgb(180, 180, 180)",
 				}}
 			>
-				<div
-					className="searchBar"
-					style={{
-						flex: 1,
-						marginTop: "5px",
-						marginLeft: "1%",
-						backgroundColor: "#F2F2F2",
-						display: "flex",
-						justifyItems: "center",
-						alignItems: "center",
-						maxHeight: "40px",
-						borderRadius: "10px",
-					}}
-				>
-					<div className="searchIcon" style={{ padding: "10px" }}>
-						<svg
-							width="24"
-							height="24"
-							viewBox="0 0 24 24"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<path
-								d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
-								stroke="#646866"
-								strokeWidth="2"
-								strokeLinecap="round"
-								strokeLinejoin="round"
-							/>
-							<path
-								d="M21 21L16.65 16.65"
-								stroke="#646866"
-								strokeWidth="2"
-								strokeLinecap="round"
-								strokeLinejoin="round"
-							/>
-						</svg>
-					</div>
-					<div
-						style={{
-							flex: 1,
-							alignSelf: "center",
-						}}
-					>
-						<input
-							type={"text"}
-							className="textBox"
-							style={{
-								border: "none",
-								paddingLeft: "0.5%",
-								width: "100%",
-								backgroundColor: "#F2F2F2",
-								outline: "none",
-							}}
-						/>
-					</div>
-				</div>
+				<SearchBar />
 				<div
 					style={{
 						flex: 1,
@@ -132,66 +75,66 @@ function UpperDiv() {
 				>
 					<ZoneButton
 						id={1}
-						controller={setZone}
-						secondController={setRegion}
-						secondCurrent={region}
-						current={zone}
+						controller={props.zoneController}
+						secondController={props.regionController}
+						secondCurrent={props.regionData}
+						current={props.zoneData}
 						text="MENA"
 					/>
 					<ZoneButton
 						id={2}
-						controller={setZone}
-						secondController={setRegion}
-						secondCurrent={region}
-						current={zone}
+						controller={props.zoneController}
+						secondController={props.regionController}
+						secondCurrent={props.regionData}
+						current={props.zoneData}
 						text="APAC"
 					/>
 					<ZoneButton
 						id={3}
-						controller={setZone}
-						secondController={setRegion}
-						secondCurrent={region}
-						current={zone}
+						controller={props.zoneController}
+						secondController={props.regionController}
+						secondCurrent={props.regionData}
+						current={props.zoneData}
 						text="NAC"
 					/>
 					<ZoneButton
 						id={4}
-						controller={setZone}
-						secondController={setRegion}
-						secondCurrent={region}
-						current={zone}
+						controller={props.zoneController}
+						secondController={props.regionController}
+						secondCurrent={props.regionData}
+						current={props.zoneData}
 						text="EMEA"
 					/>
 					<ZoneButton
 						id={5}
-						controller={setZone}
-						secondController={setRegion}
-						secondCurrent={region}
-						current={zone}
+						controller={props.zoneController}
+						secondController={props.regionController}
+						secondCurrent={props.regionData}
+						current={props.zoneData}
 						text="EEMEA"
 					/>
 					<ZoneButton
 						id={6}
-						controller={setZone}
-						secondController={setRegion}
-						secondCurrent={region}
-						current={zone}
+						controller={props.zoneController}
+						secondController={props.regionController}
+						secondCurrent={props.regionData}
+						current={props.zoneData}
 						text="SEMEA"
 					/>
 					<ZoneButton
 						id={7}
-						controller={setZone}
-						secondController={setRegion}
-						secondCurrent={region}
-						current={zone}
+						controller={props.zoneController}
+						secondController={props.regionController}
+						secondCurrent={props.regionData}
+						current={props.zoneData}
 						text="CEMEA"
 					/>
 					<ZoneButton
 						id={8}
-						controller={setZone}
-						secondController={setRegion}
-						secondCurrent={region}
-						current={zone}
+						controller={props.zoneController}
+						secondController={props.regionController}
+						secondCurrent={props.regionData}
+						current={props.zoneData}
 						text="CEE  "
 					/>
 				</div>
@@ -254,50 +197,50 @@ function UpperDiv() {
 						>
 							<RegionButton
 								id={1}
-								current={region}
-								controller={setRegion}
+								current={props.regionData}
+								controller={props.regionController}
 								text="Middle East"
 							/>
 							<RegionButton
 								id={2}
-								current={region}
-								controller={setRegion}
+								current={props.regionData}
+								controller={props.regionController}
 								text="Africa"
 							/>
 							<RegionButton
 								id={3}
-								current={region}
-								controller={setRegion}
+								current={props.regionData}
+								controller={props.regionController}
 								text="Arabic League"
 							/>
 							<RegionButton
 								id={4}
-								current={region}
-								controller={setRegion}
+								current={props.regionData}
+								controller={props.regionController}
 								text="Europe"
 							/>
 							<RegionButton
 								id={5}
-								current={region}
-								controller={setRegion}
+								current={props.regionData}
+								controller={props.regionController}
 								text="Asia"
 							/>
 							<RegionButton
 								id={6}
-								current={region}
-								controller={setRegion}
+								current={props.regionData}
+								controller={props.regionController}
 								text="Oceania"
 							/>
 							<RegionButton
 								id={7}
-								current={region}
-								controller={setRegion}
+								current={props.regionData}
+								controller={props.regionController}
 								text="Carribean"
 							/>
 							<RegionButton
 								id={8}
-								current={region}
-								controller={setRegion}
+								current={props.regionData}
+								controller={props.regionController}
 								text="North America"
 							/>
 						</div>
@@ -312,7 +255,7 @@ function UpperDiv() {
 							marginBottom: "0px",
 						}}
 					>
-						{region.length === 0 ? (
+						{props.regionData.length === 0 ? (
 							<div style={{ display: "flex", flexDirection: "row" }}>
 								<div style={{ flex: 1 }}>
 									<WhiteLoad />
@@ -339,9 +282,9 @@ function UpperDiv() {
 									return (
 										<div key={key} style={{ border: "0px solid red" }}>
 											<ChildOnev2
-												regionData={region}
+												regionData={props.regionData}
 												id={number}
-												zoneData={zone}
+												zoneData={props.zoneData}
 											/>
 										</div>
 									);
@@ -351,6 +294,7 @@ function UpperDiv() {
 					</div>
 				</div>
 			</div>
+			/
 		</div>
 	);
 }

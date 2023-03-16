@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import LowerDiv from "./LowerDiv";
 import UpperDiv from "./UpperDiv";
 import "./test.css";
 
 function Content() {
+	const [zone, setZone] = useState("");
+	const [region, setRegion] = useState("");
 	return (
 		<div
 			className="Content scrollArea"
@@ -56,10 +58,21 @@ function Content() {
 			>
 				<span style={{ fontSize: "16px", fontWeight: "600" }}>Region</span>
 				<div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
-					<UpperDiv />
+					<UpperDiv
+						zoneData={zone}
+						regionData={region}
+						zoneController={setZone}
+						regionController={setRegion}
+						s
+					/>
 				</div>
 				<div style={{ flex: 1, display: "flex" }}>
-					<LowerDiv />
+					<LowerDiv
+						zoneData={zone}
+						regionData={region}
+						zoneController={setZone}
+						regionController={setRegion}
+					/>
 				</div>
 			</div>
 			<div style={{ flex: 1 }}></div>

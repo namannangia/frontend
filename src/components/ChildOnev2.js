@@ -59,19 +59,19 @@ function ChildOnev2(props) {
 		});
 	}, [props.id, props.regionData, props.zoneData]);
 
-	console.log(selectedId);
+	// console.log(selectedId);
 	const buttonStyle = {
 		fontWeight: "550",
-		backgroundColor: props.selected ? "rgb(215, 243, 237)" : "white",
+		backgroundColor: "white",
 		fontSize: "18px",
 		border: "none",
 		borderRadius: "8px",
 		padding: "20px",
 		color: "#979B99",
-		minWidth: "240px",
+		minWidth: "270px",
 		marginBottom: "12px",
 		lineHeight: "1px",
-		outline: !props.selected ? "1px solid #979B99" : "none",
+		outline: "1px solid #979B99",
 		overflow: "hidden",
 		margin: "5px",
 		textAlign: "center",
