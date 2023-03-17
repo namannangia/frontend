@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
@@ -12,9 +12,9 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import Content from "./Content";
-import "./test.css";
 import { iconArray } from "./iconArray";
 import SearchBar from "./SearchBar";
+import "./test.css";
 
 const drawerWidth = 240;
 
@@ -55,13 +55,11 @@ const textArray = [
 	"Settings",
 ];
 
-export default function PersistentDrawerLeft() {
+export default function MainPage() {
 	const [open, setOpen] = React.useState(false);
-
-	const handleDrawerOpen = () => {
-		if (open) setOpen(false);
-		else setOpen(true);
-	};
+	function handleDrawerOpen() {
+		setOpen((a) => !a);
+	}
 
 	const handleDrawerClose = () => {
 		setOpen(false);

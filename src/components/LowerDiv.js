@@ -1,23 +1,11 @@
-import React, { useEffect, useState } from "react";
-import "./test.css";
 import SearchBar from "./SearchBar";
-import { countryData } from "./Data";
-import { Button } from "@mui/material";
 import WhiteLoad2 from "./WhiteLoad2";
+import { countryData } from "./Data";
 import PopOuts from "./PopOuts";
-import ZoneButton from "./ZoneButton";
-import RegionButton from "./RegionButton";
-import ChildOnev2 from "./ChildOnev2";
-import WhiteLoad from "./WhiteLoad";
+import React from "react";
 import "./test.css";
 
 function LowerDiv(props) {
-	const [ButtonArray, setButtonArray] = useState();
-
-	useEffect(() => {
-		console.log("Hi");
-	}, []);
-
 	const labelArr = [
 		"MENA",
 		"APAC",
@@ -189,11 +177,10 @@ function LowerDiv(props) {
 						<SearchBar />
 						<div
 							style={{
-								flex: 1,
 								fontSize: "11px",
 								marginTop: "10px",
-								maxHeight: "20px",
 								color: "#CCCCCC",
+								marginBottom: "10px",
 							}}
 						>
 							HOTSPOT Countries
@@ -205,22 +192,31 @@ function LowerDiv(props) {
 								flex: 1,
 								display: "flex",
 								flexDirection: "row",
-								padding: "10px",
-								overflowY: "hidden",
-								overflowX: "auto",
-								paddingBottom: "20px",
+								// padding: "10px",
+								// paddingBottom: "20px",
+								// border: "1px solid red",
+								flexWrap: "wrap",
 							}}
 						>
 							{["USA", "Canada", "Armenia", "China"].map((data, key) => {
 								return (
-									<div key={key}>
+									<span
+										style={{
+											display: "flex",
+											flexWrap: "wrap",
+											overflowWrap: "wrap",
+										}}
+										key={key}
+									>
 										<button
 											style={{
+												flex: 1,
 												fontWeight: "550",
 												backgroundColor: "white",
 												fontSize: "14px",
 												border: "none",
 												borderRadius: "8px",
+												marginTop: "5px",
 												padding: "15px 15px 15px 10px",
 												color: "#979B99",
 												outlineWidth: "1px",
@@ -249,15 +245,15 @@ function LowerDiv(props) {
 										>
 											{data}
 										</button>
-									</div>
+									</span>
 								);
 							})}
 						</div>
 						<div
 							style={{
-								flex: 6,
+								flex: 8,
 								display: "flex",
-								// border: "1px solid black",
+								marginTop: "10px",
 							}}
 						>
 							<div
@@ -281,7 +277,7 @@ function LowerDiv(props) {
 										// border: "1px solid black",
 									}}
 								>
-									{labelArr2[1]}
+									{labelArr2[7]}
 								</div>
 								<div
 									id="region2"
@@ -295,12 +291,11 @@ function LowerDiv(props) {
 										direction: "rtl",
 										overflowY: "auto",
 										// border: "1px solid red",
-										minHeight: "240px",
-										maxHeight: "250px",
+										maxHeight: "340px",
 									}}
 								>
 									<div style={{ direction: "ltr" }}>
-										{countryData[2].map((data, key) => {
+										{countryData[8].map((data, key) => {
 											return (
 												<div
 													style={{ display: "flex", margin: "0% 20%" }}
@@ -384,8 +379,7 @@ function LowerDiv(props) {
 										direction: "rtl",
 										overflowY: "auto",
 										// border: "1px solid red",
-										minHeight: "240px",
-										maxHeight: "250px",
+										maxHeight: "340px",
 									}}
 								>
 									<div style={{ direction: "ltr" }}>
@@ -406,12 +400,12 @@ function LowerDiv(props) {
 															borderRadius: "8px",
 															padding: "20px",
 															color: "#979B99",
+															minWidth: "200px",
 															outlineWidth: "1px",
 															outlineStyle: "solid",
 															lineHeight: "1px",
 															overflow: "hidden",
 															marginTop: "6px",
-															marginLeft: "5px",
 															marginBottom: "6px",
 															textAlign: "center",
 														}}

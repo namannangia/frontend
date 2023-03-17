@@ -59,23 +59,6 @@ function ChildOnev2(props) {
 		});
 	}, [props.id, props.regionData, props.zoneData]);
 
-	// console.log(selectedId);
-	const buttonStyle = {
-		fontWeight: "550",
-		backgroundColor: "white",
-		fontSize: "18px",
-		border: "none",
-		borderRadius: "8px",
-		padding: "20px",
-		color: "#979B99",
-		minWidth: "270px",
-		marginBottom: "12px",
-		lineHeight: "1px",
-		outline: "1px solid #979B99",
-		overflow: "hidden",
-		margin: "5px",
-		textAlign: "center",
-	};
 	const labelArr = [
 		"Middle East",
 		"Africa",
@@ -87,6 +70,22 @@ function ChildOnev2(props) {
 		"North America",
 	];
 	const arr = ["Northern", "Eastern", "Western", "Southern", "Central"];
+	const buttonStyle = {
+		fontWeight: "550",
+		backgroundColor: "white",
+		fontSize: "18px",
+		border: "none",
+		borderRadius: "8px",
+		padding: "20px",
+		color: "#979B99",
+		minWidth: "250px",
+		marginBottom: "12px",
+		lineHeight: "1px",
+		outline: "1px solid #979B99",
+		overflow: "hidden",
+		margin: "5px",
+		textAlign: "center",
+	};
 	function commonClick(e) {
 		if (e.target.style.backgroundColor !== "rgb(215, 243, 237)") {
 			e.target.style.backgroundColor = "#D7F3ED";
