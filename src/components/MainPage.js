@@ -68,179 +68,177 @@ export default function PersistentDrawerLeft() {
 	};
 
 	return (
-		<div>
-			<Box sx={{ display: "flex", marginLeft: "10px" }}>
-				<Drawer
-					sx={{
+		<Box sx={{ display: "flex", marginLeft: "10px" }}>
+			<Drawer
+				sx={{
+					width: drawerWidth,
+					flexShrink: 0,
+					"& .MuiDrawer-paper": {
 						width: drawerWidth,
-						flexShrink: 0,
-						"& .MuiDrawer-paper": {
-							width: drawerWidth,
-							boxSizing: "border-box",
-							backgroundColor: "#F2F2F2",
-						},
-					}}
-					variant="persistent"
-					anchor="left"
-					open={open}
-				>
-					<DrawerHeader>
-						<Typography
-							noWrap
-							component="div"
-							sx={{
-								fontWeight: "550",
-								fontSize: "20px",
-							}}
-							margin={"10px 10px 10px 20px "}
-							alignSelf={"center"}
-						>
-							AtiUttam
-						</Typography>
-						<IconButton onClick={handleDrawerClose}>
-							<ChevronLeftIcon />
-						</IconButton>
-					</DrawerHeader>
-					<List>
-						{textArray.map((text, index) => (
-							<ListItem key={text}>
-								<ListItemButton
-									style={{
-										borderRadius: "15px",
-										background: index === 4 ? "white" : "inherit",
-									}}
-									onClick={() => {
-										alert(
-											"Welcome to " +
-												textArray[index] +
-												". This page is not avaiable yet."
-										);
-									}}
-								>
-									<ListItemIcon>{iconArray[index]}</ListItemIcon>
-									<div
-										style={{
-											fontSize: "14px",
-											padding: "5px",
-										}}
-									>
-										{text}
-									</div>
-								</ListItemButton>
-							</ListItem>
-						))}
-					</List>
-				</Drawer>
-				<Main
-					className="scrollArea"
-					open={open}
-					sx={{
-						padding: 0,
-						paddingLeft: "0px",
-						height: "100vh",
-						display: "flex",
-						flexDirection: "column",
-					}}
-				>
-					<div
-						style={{
-							flex: 1,
-							display: "flex",
-							alignItems: "center",
-							justifyItems: "center",
-							minHeight: "60px",
+						boxSizing: "border-box",
+						backgroundColor: "#F2F2F2",
+					},
+				}}
+				variant="persistent"
+				anchor="left"
+				open={open}
+			>
+				<DrawerHeader>
+					<Typography
+						noWrap
+						component="div"
+						sx={{
+							fontWeight: "550",
+							fontSize: "20px",
 						}}
+						margin={"10px 10px 10px 20px "}
+						alignSelf={"center"}
 					>
-						<IconButton
-							color="inherit"
-							aria-label="open drawer"
-							onClick={handleDrawerOpen}
-							edge="start"
-							sx={{
-								visibility: !open ? "visible" : "hidden",
-								borderRadius: "20px",
-								outline: "none",
-								paddingLeft: "20px",
-								backgroundColor: "transparent",
-								// border: "1px solid black",
-							}}
-						>
-							<MenuIcon />
-						</IconButton>
-						<SearchBar />
-						<div
-							className="HRUser"
-							style={{
-								marginLeft: "15%",
-								flex: 3,
-								display: "flex",
-								alignItems: "center",
-								justifyContent: "center",
-							}}
-						>
-							<div
+						AtiUttam
+					</Typography>
+					<IconButton onClick={handleDrawerClose}>
+						<ChevronLeftIcon />
+					</IconButton>
+				</DrawerHeader>
+				<List>
+					{textArray.map((text, index) => (
+						<ListItem key={text}>
+							<ListItemButton
 								style={{
-									flex: 1,
-									display: "flex",
-									alignItems: "center",
+									borderRadius: "15px",
+									background: index === 4 ? "white" : "inherit",
+								}}
+								onClick={() => {
+									alert(
+										"Welcome to " +
+											textArray[index] +
+											". This page is not avaiable yet."
+									);
 								}}
 							>
-								<span
-									style={{
-										height: "35px",
-										width: "35px",
-										margin: 0,
-										fontSize: "16px",
-										background: "#39C6A4",
-										alignItems: "center",
-										justifyContent: "center",
-										fontWeight: "500",
-										borderRadius: "10px",
-										color: "white",
-										display: "flex",
-									}}
-								>
-									HR
-								</span>
-								<span style={{ paddingLeft: "10px", paddingRight: "10px" }}>
-									USER
-								</span>
+								<ListItemIcon>{iconArray[index]}</ListItemIcon>
 								<div
-									style={{ cursor: "pointer" }}
-									onClick={() => {
-										alert("Not Coded yet.");
+									style={{
+										fontSize: "14px",
+										padding: "5px",
 									}}
 								>
-									<svg
-										width="24"
-										height="24"
-										viewBox="0 0 24 24"
-										fill="none"
-										xmlns="http://www.w3.org/2000/svg"
-									>
-										<path
-											d="M18 9L12 15L6 9"
-											stroke="#4C4C4C"
-											strokeLinecap="round"
-											strokeLinejoin="round"
-										/>
-									</svg>
+									{text}
 								</div>
+							</ListItemButton>
+						</ListItem>
+					))}
+				</List>
+			</Drawer>
+			<Main
+				className="scrollArea"
+				open={open}
+				sx={{
+					padding: 0,
+					paddingLeft: "0px",
+					height: "100vh",
+					display: "flex",
+					flexDirection: "column",
+				}}
+			>
+				<div
+					style={{
+						flex: 1,
+						display: "flex",
+						alignItems: "center",
+						justifyItems: "center",
+						minHeight: "60px",
+					}}
+				>
+					<IconButton
+						color="inherit"
+						aria-label="open drawer"
+						onClick={handleDrawerOpen}
+						edge="start"
+						sx={{
+							visibility: !open ? "visible" : "hidden",
+							borderRadius: "20px",
+							outline: "none",
+							paddingLeft: "20px",
+							backgroundColor: "transparent",
+							// border: "1px solid black",
+						}}
+					>
+						<MenuIcon />
+					</IconButton>
+					<SearchBar />
+					<div
+						className="HRUser"
+						style={{
+							marginLeft: "15%",
+							flex: 3,
+							display: "flex",
+							alignItems: "center",
+							justifyContent: "center",
+						}}
+					>
+						<div
+							style={{
+								flex: 1,
+								display: "flex",
+								alignItems: "center",
+							}}
+						>
+							<span
+								style={{
+									height: "35px",
+									width: "35px",
+									margin: 0,
+									fontSize: "16px",
+									background: "#39C6A4",
+									alignItems: "center",
+									justifyContent: "center",
+									fontWeight: "500",
+									borderRadius: "10px",
+									color: "white",
+									display: "flex",
+								}}
+							>
+								HR
+							</span>
+							<span style={{ paddingLeft: "10px", paddingRight: "10px" }}>
+								USER
+							</span>
+							<div
+								style={{ cursor: "pointer" }}
+								onClick={() => {
+									alert("Not Coded yet.");
+								}}
+							>
+								<svg
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										d="M18 9L12 15L6 9"
+										stroke="#4C4C4C"
+										strokeLinecap="round"
+										strokeLinejoin="round"
+									/>
+								</svg>
 							</div>
 						</div>
 					</div>
-					<Divider variant="full-width" sx={{ backgroundColor: "black" }} />
-					<div
-						style={{
-							flex: 19,
-							display: "flex",
-							margin: "2px 5px 5px 2px",
-						}}
-					>
-						<Content />
-					</div>
-				</Main>
-			</Box>
-		</div>
+				</div>
+				<Divider variant="full-width" sx={{ backgroundColor: "black" }} />
+				<div
+					style={{
+						flex: 19,
+						display: "flex",
+						margin: "2px 5px 5px 2px",
+					}}
+				>
+					<Content />
+				</div>
+			</Main>
+		</Box>
 	);
 }

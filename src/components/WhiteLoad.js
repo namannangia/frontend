@@ -17,7 +17,7 @@ export default function Variants() {
 					sx={{
 						borderRadius: "8px",
 						padding: "20px",
-						minWidth: "270px",
+						minWidth: "230px",
 						marginBottom: "12px",
 						margin: "5px",
 					}}
@@ -29,7 +29,7 @@ export default function Variants() {
 					sx={{
 						borderRadius: "8px",
 						padding: "20px",
-						minWidth: "270px",
+						minWidth: "230px",
 						marginBottom: "12px",
 						margin: "5px",
 					}}
@@ -41,7 +41,7 @@ export default function Variants() {
 					sx={{
 						borderRadius: "8px",
 						padding: "20px",
-						minWidth: "270px",
+						minWidth: "230px",
 						marginBottom: "12px",
 						margin: "5px",
 					}}
@@ -53,7 +53,7 @@ export default function Variants() {
 					sx={{
 						borderRadius: "8px",
 						padding: "20px",
-						minWidth: "270px",
+						minWidth: "230px",
 						marginBottom: "12px",
 						margin: "5px",
 					}}
@@ -65,7 +65,7 @@ export default function Variants() {
 					sx={{
 						borderRadius: "8px",
 						padding: "20px",
-						minWidth: "270px",
+						minWidth: "230px",
 						marginBottom: "12px",
 						margin: "5px",
 					}}

@@ -266,9 +266,6 @@ function UpperDiv(props) {
 								<div style={{ flex: 1 }}>
 									<WhiteLoad />
 								</div>
-								<div style={{ flex: 1 }}>
-									<WhiteLoad />
-								</div>
 							</div>
 						) : (
 							<div
@@ -294,7 +291,6 @@ function UpperDiv(props) {
 					</div>
 				</div>
 			</div>
-			/
 		</div>
 	);
 }
