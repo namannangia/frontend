@@ -63,7 +63,6 @@ function Content() {
 						regionData={region}
 						zoneController={setZone}
 						regionController={setRegion}
-						s
 					/>
 				</div>
 				<div style={{ flex: 1, display: "flex" }}>

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 const RegionMap = {
 	1: {
-		1: [1, 2, 3, 4],
-		2: [2, 4],
+		1: [5],
+		2: [1, 3, 5],
 		3: [],
 		4: [],
 		5: [],
@@ -11,8 +11,8 @@ const RegionMap = {
 		8: [],
 	},
 	2: {
-		5: [2, 4],
-		6: [1, 2, 3, 4],
+		5: [1, 3, 5],
+		6: [5],
 
 		1: [],
 		2: [],
@@ -22,8 +22,8 @@ const RegionMap = {
 		8: [],
 	},
 	3: {
-		7: [1, 2, 3, 4, 5],
-		8: [1, 2, 3, 4, 5],
+		7: [],
+		8: [],
 		1: [],
 		2: [],
 		3: [],
@@ -32,9 +32,9 @@ const RegionMap = {
 		6: [],
 	},
 	4: {
-		1: [1, 2, 3, 4],
-		4: [1, 2, 3, 4],
-		5: [1, 2, 3, 4],
+		1: [5],
+		4: [5],
+		5: [5],
 		2: [],
 		3: [],
 		6: [],
@@ -44,35 +44,63 @@ const RegionMap = {
 };
 
 function ChildOnev2(props) {
-	const [selectedId, setSelectedId] = useState("");
+	const labelArr = React.useMemo(
+		() => [
+			"Middle East",
+			"Africa",
+			"Arabic League",
+			"Europe",
+			"Asia",
+			"Oceania",
+			"Carribean",
+			"North America",
+		],
+		[]
+	);
+	const ai = useCallback(
+		(whatToAdd) => {
+			var id = props.id - 1;
+			var x = props.childData.c1;
+			var y = x[id];
+			y.push(whatToAdd);
+			x.splice(id, 1, y);
+			props.childData.s1(x);
+		},
+		[props.childData, props.id]
+	);
 
-	useEffect(() => {
-		props.zoneData.split("").map((data) => {
-			return RegionMap[data][props.id].map((data2) => {
-				var ele = document.getElementById(data2 + "" + props.id);
-				ele.style.backgroundColor = "#D7F3ED";
-				ele.style.outline = "none";
-				return setSelectedId(
-					(prevState) => prevState + (data2 + "" + props.id) + ","
-				);
-			});
-		});
-	}, [props.id, props.regionData, props.zoneData]);
+	function addEle(whatToAdd) {
+		var id = props.id - 1;
+		var x = props.childData.c1;
+		var y = x[id];
+		y.push(whatToAdd);
+		x.splice(id, 1, y);
+		props.childData.s1(x);
+	}
 
-	const labelArr = [
-		"Middle East",
-		"Africa",
-		"Arabic League",
-		"Europe",
-		"Asia",
-		"Oceania",
-		"Carribean",
-		"North America",
-	];
+	const ri = useCallback(
+		(whatToRemove) => {
+			var x = props.childData.c1;
+			var y = x[props.id - 1];
+			y.splice(y.indexOf(whatToRemove), 1);
+			x.splice(props.id - 1, 1, y);
+			props.childData.s1(x);
+		},
+		[props.childData, props.id]
+	);
+
+	const removeEle = (whatToRemove) => {
+		var x = props.childData.c1;
+		var y = x[props.id - 1];
+		y.splice(y.indexOf(whatToRemove), 1);
+		x.splice(props.id - 1, 1, y);
+		props.childData.s1(x);
+	};
+
 	const arr = ["Northern", "Eastern", "Western", "Southern", "Central"];
 	const buttonStyle = {
 		fontWeight: "550",
-		backgroundColor: "white",
+		backgroundColor: "#D7F3ED",
 		fontSize: "18px",
 		border: "none",
 		borderRadius: "8px",
@@ -81,20 +109,64 @@ function ChildOnev2(props) {
 		minWidth: "250px",
 		marginBottom: "12px",
 		lineHeight: "1px",
-		outline: "1px solid #979B99",
+		outline: "0px solid #979B99",
 		overflow: "hidden",
 		margin: "5px",
 		textAlign: "center",
 	};
+	//Region id starts from 1
+	useEffect(() => {
+		[1, 2, 3, 4, 5].map((data) => {
+			ai(data);
+			return null;
+		});
+		console.log(
+			"At " + labelArr[props.id - 1] + ": " + props.childData.c1[props.id - 1]
+		);
+
+		if (!props.zoneData.length < 1) {
+			props.zoneData.split("").map((data) => {
+				return RegionMap[data][props.id].map((data2) => {
+					var ele = document.getElementById(data2 + "" + props.id);
+					ele.style.backgroundColor = "white";
+					ele.style.outline = "1px solid #979B99";
+					var x = props.childData.c1;
+					var y = x[props.id - 1];
+					y.splice(y.indexOf(data2), 1);
+					x.splice(props.id - 1, 1, y);
+					props.childData.s1(x);
+					return null;
+				});
+			});
+		}
+		// return () => {
+		// 	[1, 2, 3, 4, 5].map((data) => {
+		// 		ri(data);
+		// 		return null;
+		// 	});
+		// };
+	}, [
+		props.id,
+		props.regionData,
+		ai,
+		labelArr,
+		props.zoneData,
+		props.childData,
+	]);
+
 	function commonClick(e) {
+		alert("Removing " + e.target.id.charAt(0));
+		console.log(
+			"At " + labelArr[props.id - 1] + ": " + props.childData.c1[props.id - 1]
+		);
 		if (e.target.style.backgroundColor !== "rgb(215, 243, 237)") {
 			e.target.style.backgroundColor = "#D7F3ED";
 			e.target.style.outline = "none";
+			addEle(e.target.id.charAt(0));
 		} else {
 			e.target.style.backgroundColor = "white";
-			e.target.style.outlineColor = "#979B99";
-			e.target.style.outlineWidth = "1px";
-			e.target.style.outlineStyle = "solid";
+			e.target.style.outline = "1px solid #979B99";
+			removeEle(e.target.id.charAt(0));
 		}
 	}
 	return (

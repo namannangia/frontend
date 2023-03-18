@@ -7,6 +7,11 @@ import "./test.css";
 import SearchBar from "./SearchBar";
 
 function UpperDiv(props) {
+	const [child1, setChild1] = React.useState([[], [], [], [], [], [], [], []]);
+
+	const searchOptions = React.useMemo(() => {
+		return { c1: child1, s1: setChild1 };
+	}, [setChild1, child1]);
 	function removeDuplicate() {
 		var result = [];
 		for (
@@ -271,7 +276,6 @@ function UpperDiv(props) {
 							<div
 								style={{
 									display: "flex",
-									border: "0px solid yellow",
 									paddingBottom: "0px",
 								}}
 							>
@@ -280,6 +284,7 @@ function UpperDiv(props) {
 										<div key={key} style={{ border: "0px solid red" }}>
 											<ChildOnev2
 												regionData={props.regionData}
+												childData={searchOptions}
 												id={number}
 												zoneData={props.zoneData}
 											/>
