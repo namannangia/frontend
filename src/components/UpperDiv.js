@@ -7,11 +7,6 @@ import "./test.css";
 import SearchBar from "./SearchBar";
 
 function UpperDiv(props) {
-	const [child1, setChild1] = React.useState([[], [], [], [], [], [], [], []]);
-
-	const searchOptions = React.useMemo(() => {
-		return { c1: child1, s1: setChild1 };
-	}, [setChild1, child1]);
 	function removeDuplicate() {
 		var result = [];
 		for (
@@ -24,7 +19,7 @@ function UpperDiv(props) {
 		return result;
 	}
 	function reRender() {
-		for (let index = 1; index <= 8; index++) {
+		for (let index = 1; index <= 7; index++) {
 			if (props.regionData.includes("" + index + "")) {
 				var e = document.getElementById("region").children[Number(index) - 1];
 				e.style.backgroundColor = "#D7F3ED";
@@ -216,34 +211,28 @@ function UpperDiv(props) {
 								id={3}
 								current={props.regionData}
 								controller={props.regionController}
-								text="Arabic League"
+								text="Europe"
 							/>
 							<RegionButton
 								id={4}
 								current={props.regionData}
 								controller={props.regionController}
-								text="Europe"
+								text="Asia"
 							/>
 							<RegionButton
 								id={5}
 								current={props.regionData}
 								controller={props.regionController}
-								text="Asia"
+								text="Oceania"
 							/>
 							<RegionButton
 								id={6}
 								current={props.regionData}
 								controller={props.regionController}
-								text="Oceania"
-							/>
-							<RegionButton
-								id={7}
-								current={props.regionData}
-								controller={props.regionController}
 								text="Carribean"
 							/>
 							<RegionButton
-								id={8}
+								id={7}
 								current={props.regionData}
 								controller={props.regionController}
 								text="North America"
@@ -284,7 +273,8 @@ function UpperDiv(props) {
 										<div key={key} style={{ border: "0px solid red" }}>
 											<ChildOnev2
 												regionData={props.regionData}
-												childData={searchOptions}
+												childData={props.childData}
+												childController={props.childController}
 												id={number}
 												zoneData={props.zoneData}
 											/>

@@ -1,7 +1,6 @@
 export const countryData = {
 	1: [
 		"Bahrain",
-		"Iran",
 		"Iraq",
 		"Israel",
 		"Jordan",
@@ -16,13 +15,10 @@ export const countryData = {
 		"Yemen",
 	],
 	2: ["Algeria", "Egypt", "Libya", "Morocco", "Sudan", "Tunisia"],
-	3: [],
-	4: [
+	3: [
 		"Russia",
 		"Ukraine",
-		"Ukraine",
 		"Poland",
-		"Ukraine",
 		"Poland",
 		"Romania",
 		"Czech Republic (Czechia)",
@@ -31,7 +27,6 @@ export const countryData = {
 		"Bulgaria",
 		"Moldova",
 		"Slovakia",
-		"Germany",
 		"Germany",
 		"Netherlands",
 		"Belgium",
@@ -43,7 +38,7 @@ export const countryData = {
 		"Liechtenstein",
 		"United Kingdom",
 	],
-	5: [
+	4: [
 		"China",
 		"India",
 		"Japan",
@@ -103,7 +98,7 @@ export const countryData = {
 		"Vietnam,",
 		"Yemen",
 	],
-	6: [
+	5: [
 		"New Zealand",
 		"Australia",
 		"Australia",
@@ -133,11 +128,8 @@ export const countryData = {
 		"Micronesia",
 		"Samoa",
 	],
-	7: [
+	6: [
 		"Jamaica",
-		"Barbados",
-		"Barbados",
-		"Dominican Republic",
 		"Barbados",
 		"Dominican Republic",
 		"Saint Lucia",
@@ -159,9 +151,8 @@ export const countryData = {
 		"Suriname",
 		"Guyana",
 	],
-	8: [
+	7: [
 		"Antigua and Barbuda",
-		"Bahamas",
 		"Bahamas",
 		"Barbados",
 		"Belize",

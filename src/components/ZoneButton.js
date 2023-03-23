@@ -29,11 +29,11 @@ function ZoneButton(props) {
 					if (props.id === 1)
 						props.secondController((prevRender) => prevRender + "12");
 					if (props.id === 2)
-						props.secondController((prevRender) => prevRender + "56");
+						props.secondController((prevRender) => prevRender + "45");
 					if (props.id === 3)
-						props.secondController((prevRender) => prevRender + "87");
+						props.secondController((prevRender) => prevRender + "67");
 					if (props.id === 4)
-						props.secondController((prevRender) => prevRender + "415");
+						props.secondController((prevRender) => prevRender + "314");
 				} else {
 					e.target.style.backgroundColor = "white";
 					e.target.style.outlineColor = "#979B99";
@@ -63,7 +63,7 @@ function ZoneButton(props) {
 							str2.substring(0, index2) +
 							str2.substring(index2 + 1, str2.length);
 
-						index2 = str2.indexOf("6");
+						index2 = str2.indexOf("4");
 						str2 =
 							str2.substring(0, index2) +
 							str2.substring(index2 + 1, str2.length);
@@ -76,7 +76,7 @@ function ZoneButton(props) {
 							str2.substring(0, index2) +
 							str2.substring(index2 + 1, str2.length);
 
-						index2 = str2.indexOf("8");
+						index2 = str2.indexOf("6");
 						str2 =
 							str2.substring(0, index2) +
 							str2.substring(index2 + 1, str2.length);
@@ -84,7 +84,7 @@ function ZoneButton(props) {
 					}
 					if (props.id === 4) {
 						str2 = String(props.secondCurrent);
-						index2 = str2.indexOf("4");
+						index2 = str2.indexOf("3");
 						str2 =
 							str2.substring(0, index2) +
 							str2.substring(index2 + 1, str2.length);
@@ -92,7 +92,7 @@ function ZoneButton(props) {
 						str2 =
 							str2.substring(0, index2) +
 							str2.substring(index2 + 1, str2.length);
-						index2 = str2.indexOf("5");
+						index2 = str2.indexOf("4");
 						str2 =
 							str2.substring(0, index2) +
 							str2.substring(index2 + 1, str2.length);

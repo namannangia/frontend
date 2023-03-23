@@ -6,6 +6,17 @@ import "./test.css";
 function Content() {
 	const [zone, setZone] = useState("");
 	const [region, setRegion] = useState("");
+	// const [child1, setChild1] = React.useState([
+	// 	[1, 2, 3, 4, 5],
+	// 	[1, 2, 3, 4, 5],
+	// 	[1, 2, 3, 4, 5],
+	// 	[1, 2, 3, 4, 5],
+	// 	[1, 2, 3, 4, 5],
+	// 	[1, 2, 3, 4, 5],
+	// 	[1, 2, 3, 4, 5],
+	// 	[1, 2, 3, 4, 5],
+	// ]);
+	const [child1, setChild1] = React.useState([[], [], [], [], [], [], []]);
 	return (
 		<div
 			className="Content scrollArea"
@@ -63,6 +74,8 @@ function Content() {
 						regionData={region}
 						zoneController={setZone}
 						regionController={setRegion}
+						childData={child1}
+						childController={setChild1}
 					/>
 				</div>
 				<div style={{ flex: 1, display: "flex" }}>
@@ -71,6 +84,8 @@ function Content() {
 						regionData={region}
 						zoneController={setZone}
 						regionController={setRegion}
+						childData={child1}
+						childController={setChild1}
 					/>
 				</div>
 			</div>

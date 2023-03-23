@@ -66,7 +66,7 @@ export default function MainPage() {
 	};
 
 	return (
-		<Box sx={{ display: "flex", marginLeft: "10px" }}>
+		<Box sx={{ flex: 1, display: "flex", marginLeft: "10px" }}>
 			<Drawer
 				sx={{
 					width: drawerWidth,

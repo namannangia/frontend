@@ -17,7 +17,19 @@ export default function Variants() {
 					sx={{
 						borderRadius: "8px",
 						padding: "20px",
-						minWidth: "270px",
+						marginBottom: "12px",
+						margin: "5px",
+						minWidth: "-webkit-fill-available",
+					}}
+				/>
+				<Skeleton
+					variant="rounded"
+					width={"10vw"}
+					height={41}
+					sx={{
+						borderRadius: "8px",
+						padding: "20px",
+						minWidth: "-webkit-fill-available",
 						marginBottom: "12px",
 						margin: "5px",
 					}}
@@ -29,7 +41,7 @@ export default function Variants() {
 					sx={{
 						borderRadius: "8px",
 						padding: "20px",
-						minWidth: "270px",
+						minWidth: "-webkit-fill-available",
 						marginBottom: "12px",
 						margin: "5px",
 					}}
@@ -41,7 +53,7 @@ export default function Variants() {
 					sx={{
 						borderRadius: "8px",
 						padding: "20px",
-						minWidth: "270px",
+						minWidth: "-webkit-fill-available",
 						marginBottom: "12px",
 						margin: "5px",
 					}}
@@ -53,19 +65,7 @@ export default function Variants() {
 					sx={{
 						borderRadius: "8px",
 						padding: "20px",
-						minWidth: "270px",
-						marginBottom: "12px",
-						margin: "5px",
-					}}
-				/>
-				<Skeleton
-					variant="rounded"
-					width={"10vw"}
-					height={41}
-					sx={{
-						borderRadius: "8px",
-						padding: "20px",
-						minWidth: "270px",
+						minWidth: "-webkit-fill-available",
 						marginBottom: "12px",
 						margin: "5px",
 					}}
