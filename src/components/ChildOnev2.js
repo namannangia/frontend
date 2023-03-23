@@ -99,7 +99,6 @@ function ChildOnev2(props) {
 		margin: "5px",
 		textAlign: "center",
 	};
-	//Region id starts from 1
 	useEffect(() => {
 		if (props.zoneData.length > 0) {
 			props.zoneData.split("").map((data) => {
@@ -107,19 +106,11 @@ function ChildOnev2(props) {
 					var ele = document.getElementById(data2 + "" + props.id);
 					ele.style.backgroundColor = "white";
 					ele.style.outline = "1px solid #979B99";
-					// console.log("Removing " + data2 + " from " + labelArr[props.id - 1]);
 					ri(Number(data2));
 					return null;
 				});
 			});
 		}
-
-		// console.log(
-		// 	"Current: " +
-		// 		labelArr[props.id - 1] +
-		// 		" ->" +
-		// 		props.childData[props.id - 1]
-		// );
 	}, [
 		props.id,
 		props.regionData,
@@ -131,23 +122,14 @@ function ChildOnev2(props) {
 	]);
 
 	function commonClick(e) {
-		// console.log("Prev: " + props.childData[props.id - 1]);
 		if (e.target.style.backgroundColor !== "rgb(215, 243, 237)") {
 			e.target.style.backgroundColor = "#D7F3ED";
 			e.target.style.outline = "none";
-			// alert("Adding " + e.target.id.charAt(0));
 			ai(Number(e.target.id.charAt(0)));
-			// console.log(
-			// 	"At " + labelArr[props.id - 1] + ": " + props.childData[props.id - 1]
-			// );
 		} else {
 			e.target.style.backgroundColor = "white";
 			e.target.style.outline = "1px solid #979B99";
-			// alert("Removing " + e.target.id.charAt(0));
 			ri(Number(e.target.id.charAt(0)));
-			// console.log(
-			// 	"At " + labelArr[props.id - 1] + ": " + props.childData[props.id - 1]
-			// );
 		}
 	}
 	return (

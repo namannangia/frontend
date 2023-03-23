@@ -72,9 +72,9 @@ function Content() {
 					<UpperDiv
 						zoneData={zone}
 						regionData={region}
+						childData={child1}
 						zoneController={setZone}
 						regionController={setRegion}
-						childData={child1}
 						childController={setChild1}
 					/>
 				</div>
@@ -82,9 +82,9 @@ function Content() {
 					<LowerDiv
 						zoneData={zone}
 						regionData={region}
+						childData={child1}
 						zoneController={setZone}
 						regionController={setRegion}
-						childData={child1}
 						childController={setChild1}
 					/>
 				</div>

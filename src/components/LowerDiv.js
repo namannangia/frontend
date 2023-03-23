@@ -8,7 +8,7 @@ import PartB from "./PartB";
 
 function LowerDiv(props) {
 	React.useEffect(() => {
-		// alert("Hi");
+		alert(props.childData);
 	}, [props]);
 
 	const btnStyle = {
@@ -194,8 +194,7 @@ function LowerDiv(props) {
 					SECOND PART
 				
 				
-				*/}
-
+						*/}
 				<div style={{ flex: 2, display: "flex", border: "0px solid green" }}>
 					<div
 						style={{
