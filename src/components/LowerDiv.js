@@ -1,14 +1,30 @@
 import SearchBar from "./SearchBar";
 import WhiteLoad2 from "./WhiteLoad2";
-import { countryData } from "./Data";
+// import { countryData } from "./Data";
 import PopOuts from "./PopOuts";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./test.css";
 import PartB from "./PartB";
+import Temp from "./Temp";
+import { masterData } from "./Master";
 
 function LowerDiv(props) {
-	React.useEffect(() => {
-		alert(props.childData);
+	const [other, setOther] = React.useState("");
+	useEffect(() => {
+		props.childData.map((data, key) => {
+			return data.map((data2, key2) => {
+				// console.log("Data=>" + data2);
+				// console.log("Fetching MasterData[" + (key + 1) + "][" + data2 + "]: ");
+				if (!other.includes(masterData[key + 1][data2])) {
+					var x = masterData[key + 1][data2];
+					x.map((data7, key) => {
+						return setOther((prev) => prev + "," + data7);
+					});
+					return null;
+				}
+				return null;
+			});
+		});
 	}, [props]);
 
 	const btnStyle = {
@@ -43,23 +59,11 @@ function LowerDiv(props) {
 	const labelArr2 = [
 		"Middle East",
 		"Africa",
-		"Arabic League",
 		"Europe",
 		"Asia",
 		"Oceania",
-		"Carribean",
-		"North America",
+		"AMERs",
 	];
-	const [other, setOther] = React.useState("");
-	window.requestAnimationFrame(() => {
-		props.regionData.split("").map((data, key2) => {
-			return countryData[data].map((data2, key) => {
-				if (other.includes(data2) === -1)
-					return setOther((prev) => prev + "," + data2);
-				return null;
-			});
-		});
-	});
 
 	return (
 		<div
@@ -154,7 +158,7 @@ function LowerDiv(props) {
 							{props.zoneData.length >= 1 ? "Countries" : ""}
 						</div>
 
-						{other.length > 0 || props.zoneData.length > 0 ? (
+						{other.length > 0 ? (
 							<div
 								className="scrollArea"
 								style={{
@@ -171,16 +175,21 @@ function LowerDiv(props) {
 										maxHeight: "400px",
 									}}
 								>
-									{other
-										.split(",")
-										.splice(1, 0)
-										.map((data2, key) => {
-											return (
-												<span id={"btn" + key + " "} key={key}>
-													<PopOuts data={data2} id={"btn" + key + " $"} />
-												</span>
-											);
-										})}
+									{other.split(",").map((data, key) => {
+										return key === 0 ? (
+											<span key={key}></span>
+										) : (
+											<span key={key} id={key}>
+												<PopOuts
+													id={key}
+													data={data}
+													childData={props.childData}
+													otherData={other}
+													otherController={setOther}
+												/>
+											</span>
+										);
+									})}
 								</div>
 							</div>
 						) : (
@@ -219,8 +228,6 @@ function LowerDiv(props) {
 						>
 							HOTSPOT Countries
 						</div>
-						So:
-						{other}
 						<div
 							id="zone"
 							className="scrollArea 	"

@@ -4,10 +4,17 @@ function PopOuts(props) {
 	return (
 		<button
 			onClick={() => {
-				var ele = document.getElementById(
-					props.id.substring(0, props.id.length - 1)
-				);
-				ele.remove();
+				alert("{" + props.data + "} removed");
+				var y = props.otherData.indexOf(props.data);
+				if (y !== -1) {
+					var str =
+						props.otherData.substring(0, y - 1) +
+						props.otherData.substring(
+							y + props.data.length,
+							props.otherData.length
+						);
+					props.otherController(str);
+				}
 			}}
 			style={{
 				direction: "ltr",

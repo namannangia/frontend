@@ -21,7 +21,6 @@ function PartB(props) {
 							flexDirection: "column",
 						}}
 					>
-						{props.otherData}
 						<div
 							style={{
 								flex: 1,
@@ -83,6 +82,7 @@ function PartB(props) {
 													) {
 														e.target.style.backgroundColor = "#D7F3ED";
 														e.target.style.outline = "none";
+														props.otherController((prev) => prev + e.target.id);
 													} else {
 														e.target.style.backgroundColor = "white";
 														e.target.style.outlineColor = "#979B99";

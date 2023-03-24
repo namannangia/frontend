@@ -31,7 +31,7 @@ function ZoneButton(props) {
 					if (props.id === 2)
 						props.secondController((prevRender) => prevRender + "45");
 					if (props.id === 3)
-						props.secondController((prevRender) => prevRender + "67");
+						props.secondController((prevRender) => prevRender + "6");
 					if (props.id === 4)
 						props.secondController((prevRender) => prevRender + "314");
 				} else {
@@ -71,10 +71,6 @@ function ZoneButton(props) {
 					}
 					if (props.id === 3) {
 						str2 = String(props.secondCurrent);
-						index2 = str2.indexOf("7");
-						str2 =
-							str2.substring(0, index2) +
-							str2.substring(index2 + 1, str2.length);
 
 						index2 = str2.indexOf("6");
 						str2 =

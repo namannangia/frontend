@@ -19,7 +19,7 @@ function UpperDiv(props) {
 		return result;
 	}
 	function reRender() {
-		for (let index = 1; index <= 7; index++) {
+		for (let index = 1; index <= 6; index++) {
 			if (props.regionData.includes("" + index + "")) {
 				var e = document.getElementById("region").children[Number(index) - 1];
 				e.style.backgroundColor = "#D7F3ED";
@@ -229,13 +229,7 @@ function UpperDiv(props) {
 								id={6}
 								current={props.regionData}
 								controller={props.regionController}
-								text="Carribean"
-							/>
-							<RegionButton
-								id={7}
-								current={props.regionData}
-								controller={props.regionController}
-								text="North America"
+								text="AMERs"
 							/>
 						</div>
 					</div>
@@ -251,9 +245,6 @@ function UpperDiv(props) {
 					>
 						{props.regionData.length === 0 ? (
 							<div style={{ display: "flex", flexDirection: "row" }}>
-								<div style={{ flex: 1 }}>
-									<WhiteLoad />
-								</div>
 								<div style={{ flex: 1 }}>
 									<WhiteLoad />
 								</div>
